@@ -294,7 +294,7 @@ const got = {
           name: "Jon Arryn",
           description:
             "Lord of the Eyrie - Head of House Arryn - Warden of the East - Defender of the Vale",
-          image:
+          image: 
             "http://cheatsheetworld.com/img/entertainment/game-of-thrones/game-of-thrones-jon-arryn.jpg",
           wikiLink: "http://gameofthrones.wikia.com/wiki/Jon_Arryn"
         }
