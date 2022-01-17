@@ -2,30 +2,59 @@
 
 function countAllPeople() {
   // your code goes here
+  let sum = 0;
+     let total = got.houses.map((l) =>l.people.length);
+     for(let num of total){
+      
+       sum = sum + num;
+     }
+    return sum ; 
 }
 
 function peopleByHouses() {
   // your code goes here
+  let obj ={}
+ obj[got.houses.map((p) => p.name )] = got.houses.map((n) => n.people.length);
+ return obj;
 }
 
 function everyone() {
   // your code goes here
+  let totalName = got.houses.map((l) => l.people)
+  let allName = totalName.flat(Infinity).map((p) => p.name);
+  return allName;
 }
 
 function nameWithS() {
   // your code goes here
+  let totalName = got.houses.map((l) => l.people)
+  let allName = totalName.flat(Infinity).map((p) => p.name);
+  let nameS = allName.filter((p) => p.includes("S") ||p.includes("s"));
+  return nameS;
 }
 
 function nameWithA() {
   // your code goes here
+  let totalName = got.houses.map((l) => l.people)
+  let allName = totalName.flat(Infinity).map((p) => p.name);
+  let nameS = allName.filter((p) => p.includes("A") ||p.includes("a"));
+  return nameS;
 }
 
 function surnameWithS() {
   // your code goes here
+  let totalName = got.houses.map((l) => l.people)
+  let allName = totalName.flat(Infinity).map((p) => p.name);
+  let nameS = allName.filter((p) => p.split(" ")[1].includes("S"));
+  return nameS;
 }
 
 function surnameWithA() {
   // your code goes here
+  let totalName = got.houses.map((l) => l.people)
+  let allName = totalName.flat(Infinity).map((p) => p.name);
+  let nameS = allName.filter((p) => p.split(" ")[1].includes("A"));
+  return nameS;
 }
 
 function peopleNameOfAllHouses() {
