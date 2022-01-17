@@ -14,20 +14,66 @@ let persons = [
 ];
 
 // NOTE: Use reduce method whereever you can to solve this exercise:
-
+let female = persons.filter((l) => l.sex === "F");
+let male = persons.filter((l) => l.sex === "M");
 // Find the average grade
+let avgGrade = persons.reduce((acc , cv) =>{
+  let grades = cv.grade;
+  acc.push(grades);
+  return acc;
+}, []).reduce((acc , cv) => {
+   acc = acc + cv;
+   return acc;
+},0) / persons.length; // 11.083333333333334
 
 // Find the average grade of male
-
+let avgFemale = persons.reduce((acc , cv) => {
+  if(cv.sex === "M"){
+      acc.push(cv.grade);
+  }
+  return acc;
+},[]).reduce((acc , cv) => {
+  acc = acc +cv;
+  return acc;
+},0)/female.lastIndexOf; 
 // Find the average grade of female
 
+let avgmale = persons.reduce((acc , cv) => {
+  if(cv.sex === "F"){
+      acc.push(cv.grade);
+  }
+  return acc;
+},[]).reduce((acc , cv) => {
+  acc = acc +cv;
+  return acc;
+},0) / male.length;
 // Find the highest grade
 
+let highestGrade = persons.reduce((acc , cv) =>{
+      acc.push(cv.grade);
+      return acc;
+},[]).sort((a ,b) => b-a )[0]; // 18
 // Find the highest grade in male
-
+let higestGradeMale =persons.reduce((acc , cv) => {
+  if(cv.sex === "M"){
+      acc.push(cv.grade);
+  }
+  return acc;
+},[]).sort((a , b) => b-a)[0] // 17
 // Find the highest grade in female
-
+let higestGradeFemale =persons.reduce((acc , cv) => {
+  if(cv.sex === "F"){
+      acc.push(cv.grade);
+  }
+  return acc;
+},[]).sort((a , b) => b-a)[0] // 18
 // Find the highest grade for people whose name starts with 'J' or 'P'
+let higestGrade = persons.reduce((acc ,cv) =>{
+      if(cv.name.startsWith('J') || cv.name.startsWith('p')){
+         acc.push(cv.grade);
+      }
+      return acc;
+},[]).sort((a,b) => b-a)[0];
 
 const fruitBasket = [
   'banana',
@@ -51,6 +97,13 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+let fruitsObj = fruitBasket.reduce((acc , cv) => {
+    if(acc[cv]) {
+      acc[cv] = ++acc[cv];
+    }else{
+      acc[cv] = 1;
+    }
+},{})
 
 /* 
 
@@ -69,6 +122,10 @@ const data = [
   [10, 11, 12],
 ];
 
+data.reduce((acc ,cv) =>{
+   acc.push(cv.flat(Infinity))
+   return acc ;
+},[]);
 // Using reduce flat data array
 
 const dataTwo = [
