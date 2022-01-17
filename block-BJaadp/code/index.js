@@ -99,11 +99,11 @@ Output:
 */
 let fruitsObj = fruitBasket.reduce((acc , cv) => {
     if(acc[cv]) {
-      acc[cv] = ++acc[cv];
-    }else{
+      acc[cv] = acc[cv] + 1;
+    } else {
       acc[cv] = 1;
     }
-},{})
+},{});
 
 /* 
 
@@ -114,6 +114,12 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
+ let fruitsArrays = Object.keys(fruitsObj).reduce((acc , cv) =>{
+   acc = acc.concat([[cv, fruitsObj[cv]]]);
+   return acc;
+},[]);
+
+
 
 const data = [
   [1, 2, 3],
@@ -123,9 +129,9 @@ const data = [
 ];
 
 data.reduce((acc ,cv) =>{
-   acc.push(cv.flat(Infinity))
-   return acc ;
-},[]);
+   acc = acc.concat(cv);
+   return acc;
+}, []);
 // Using reduce flat data array
 
 const dataTwo = [
@@ -137,6 +143,10 @@ const dataTwo = [
 
 // Using reduce flat dataTwo array
 
+dataTwo.reduce((acc ,cv) =>{
+  acc = acc.concat(cv.flat(Infinity));
+  return acc;
+}, []);
 /*
 
 Create these functions which accepts a number value and returns a number value:
@@ -158,10 +168,32 @@ let pipeline = [
   increment,
 ];
 
+function increment(num) {
+  return num + 1;
+}
+
+function double(num) {
+  return num * 2;
+}
+
+function decrement(num) {
+  return num -1;
+}
+function triple(num) {
+  return num * 3;
+}
+function half(num) {
+  return Math.round(num /2);
+}
+
+pipeline.reduce((acc ,cv) =>{
+  acc = cv(acc);
+},3)
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
 
 NOTE: Initial value will be passed to first function the output of that function will be the input to next function.
+
 
 EXAMPLE:
   initialValue - 3
@@ -187,3 +219,6 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+pipeline2.reduce((acc ,cv) =>{
+  acc = cv(acc);
+}, 8);
